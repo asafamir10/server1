@@ -25,6 +25,31 @@ next(err);
 res.json({product:item});
 });//end of save
 });
+app.get('/insert2/:title/:description', function(req, res, next){
+    var t = req.params.title;
+    var d = req.params.description;
+
+    var p1 = {title:t, description:d,created: new Date()};
+    var newItem = new CurrentProduct(p1);
+    newItem.save(function(err, item){
+    if(err){
+    next(err);
+    }
+    res.json({product:item});
+    });//end of save
+});
+ 
+app.post('/temp', function(req, res){
+   
+    var t = req.body.title;
+    var d = req.body.description;
+
+    console.log(t);
+    console.log(d);
+
+
+})
+
 app.post('/insert1', function(req, res, next){
     var title = req.body.title;
     var description = req.body.description;
