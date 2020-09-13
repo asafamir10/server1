@@ -7,4 +7,8 @@ created:Date
 
 });
 
+
+
+// html file (js)  ====> node(localhost| heroku ) ====> mongodb
+//                 <====                          <====
 module.exports = mongoose.model('product',ProductSchema);
